@@ -1,25 +1,54 @@
 ﻿using System;
-using System.Reflection;
-using System.Collections.Generic;
 using System.IO;
+using System.Collections.Generic;
 using LiteDB;
 
 namespace SharpTabs
 {
     public class SessionDao
     {
-        public static T[] Load<T>(string path)
+        public static string DefaultPath(string name)
+        {
+            var folder = TabsTools.DefaultFolder(name);
+            return Path.Combine(folder, "sessions.db");
+        }
+
+        public static string NewName()
+        {
+            var now = DateTime.Now;
+            var id = now.ToString("HHmmss.fff");
+            return $"Session {id}";
+        }
+
+        public static void Exec(string path, Action<LiteDatabase> callback)
+        {
+            using (var db = new LiteDatabase(path))
+            {
+                callback(db);
+            }
+        }
+
+        public static T[] Load<T>(string path) where T : SessionDto
         {
             using (var db = new LiteDatabase(path))
             {
                 var table = db.GetCollection<T>("sessions");
                 var list = new List<T>(table.FindAll());
+                foreach(var dto in list)
+                {
+                    dto.Id = 0;
+                }
                 return list.ToArray();
             }
         }
 
-        public static void Save(string path, object[] dtos)
+        public static void Save(string path, SessionDto[] dtos)
         {
+            var index = 0;
+            foreach (var dto in dtos)
+            {
+                dto.Id = ++index;
+            }
             BsonMapper.Global.EmptyStringToNull = false;
             using (var db = new LiteDatabase(path))
             {
@@ -30,20 +59,6 @@ namespace SharpTabs
                 db.DropCollection("sessions");
                 db.RenameCollection("temp", "sessions");
             }
-        }
-
-        public static string DefaultPath(string name)
-        {
-#if DEBUG
-            var entry = Assembly.GetEntryAssembly().Location;
-            var folder = Path.GetDirectoryName(entry);
-            return Path.Combine(folder, "sessions.db");
-#else
-            var root = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
-            var folder = Path.Combine(root, name);
-            Directory.CreateDirectory(folder);
-            return Path.Combine(folder, "sessions.db");
-#endif
         }
     }
 }

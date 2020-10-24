@@ -33,16 +33,16 @@ namespace SharpTabs
             return tabPage.Tag as Control;
         }
 
-        private object Dto(TabPage tabPage)
+        private SessionDto Dto(TabPage tabPage)
         {
             var control = Control(tabPage);
             control.Text = tabPage.Text; //name holder
             return factory.Unwrap(control);
         }
 
-        private object[] Dtos()
+        private SessionDto[] Dtos()
         {
-            var list = new List<object>();
+            var list = new List<SessionDto>();
             foreach(var item in tabControl.TabPages)
             {
                 list.Add(Dto(item as TabPage));
@@ -52,11 +52,15 @@ namespace SharpTabs
 
         private void MainForm_Load(object sender, EventArgs e)
         {
+            if (TabsTools.IsDebug() && TabsTools.IsControlDown())
+            {
+                throw new Exception("Exception to test dump DEBUG+CNTRL");
+            }
             Text = factory.Title;
             Icon = factory.Icon;
             toolStripStatusLabel.Text = factory.Status;
             tabControl.TabPages.Clear();
-            foreach(var dto in factory.Load())
+            foreach (var dto in factory.Load())
             {
                 AddTab(factory.Wrap(dto));
             }
@@ -79,15 +83,13 @@ namespace SharpTabs
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             var dtos = Dtos();
-            #if DEBUG
             var current = JsonConvert.SerializeObject(dtos, Formatting.Indented);
             var original = JsonConvert.SerializeObject(factory.Load(), Formatting.Indented);
-            File.WriteAllText("original.txt", original);
-            File.WriteAllText("current.txt", current);
-            #else
-            var current = JsonConvert.SerializeObject(dtos);
-            var original = JsonConvert.SerializeObject(factory.Load());
-            #endif
+            if (TabsTools.IsDebug())
+            {
+                File.WriteAllText("original.txt", original);
+                File.WriteAllText("current.txt", current);
+            }
             if (current != original)
             {
                 var result = MessageBox.Show(this, 
@@ -200,7 +202,7 @@ namespace SharpTabs
             if (fd.ShowDialog() == DialogResult.OK)
             {
                 var dto = Dto(selected);
-                factory.Save(fd.FileName, new object[] {dto});
+                factory.Save(fd.FileName, new SessionDto[] {dto});
             }
         }
 

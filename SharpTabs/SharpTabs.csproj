@@ -65,6 +65,8 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resource.resx</DependentUpon>
     </Compile>
+    <Compile Include="TabsTools.cs" />
+    <Compile Include="SessionDto.cs" />
     <Compile Include="SessionDao.cs" />
     <Compile Include="SessionFactory.cs" />
     <Compile Include="MainForm.cs">
@@ -74,7 +76,7 @@
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SampleApp.cs" />
+    <Compile Include="TabsApp.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="MainForm.resx">

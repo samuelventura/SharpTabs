@@ -11,7 +11,9 @@ namespace SharpTabs
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             var path = args.Length > 0 ? args[0] : null;
-            Application.Run(new MainForm(new SampleFactory(path)));
+            var factory = new TabFactory(path);
+            TabsTools.SetupCatcher(factory.Name);
+            Application.Run(new MainForm(factory));
         }
     }
 }

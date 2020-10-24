@@ -12,12 +12,12 @@ namespace SharpTabs
         string Title { get; }
         string Status { get; }
         Control New();
-        object[] Load();
-        object[] Load(string path);
+        SessionDto[] Load();
+        SessionDto[] Load(string path);
         void Unload(Control control);
-        void Save(object[] dtos);
-        void Save(string path, object[] dtos);
-        Control Wrap(object dto);
-        object Unwrap(Control control);
+        void Save(SessionDto[] dtos);
+        void Save(string path, SessionDto[] dtos);
+        Control Wrap(SessionDto dto);
+        SessionDto Unwrap(Control control);
     }
 }
