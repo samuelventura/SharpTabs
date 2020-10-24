@@ -33,8 +33,11 @@ namespace SharpTabs
         {
             SessionDao.Exec(path, (db) => 
             {
-                //force migration
-                //db.Engine.UserVersion = 0;
+                if (TabsTools.IsDebug())
+                {
+                    //force migration
+                    //db.Engine.UserVersion = 0;
+                }
                 //migration
                 if (db.Engine.UserVersion < 1)
                 {
