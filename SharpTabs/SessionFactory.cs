@@ -14,6 +14,7 @@ namespace SharpTabs
         Control New();
         SessionDto[] Load();
         SessionDto[] Load(string path);
+        void Setup(Control control);
         void Unload(Control control);
         void Save(SessionDto[] dtos);
         void Save(string path, SessionDto[] dtos);

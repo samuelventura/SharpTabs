@@ -66,6 +66,11 @@ namespace SharpTabs
             SessionDao.Save(path, dtos);
         }
 
+        public void Setup(Control obj)
+        {
+            MessageBox.Show("Setup goes here", "Setup");
+        }
+
         public Control New()
         {
             return Wrap(new TabDto

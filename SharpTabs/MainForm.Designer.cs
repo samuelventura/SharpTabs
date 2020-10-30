@@ -47,6 +47,7 @@
             this.toolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.tabControl = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.setupToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.toolStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
             this.tabControl.SuspendLayout();
@@ -57,6 +58,7 @@
             this.toolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.newToolStripButton,
             this.cloneToolStripButton,
+            this.setupToolStripButton,
             this.renameToolStripButton,
             this.saveToolStripButton,
             this.toolStripSeparator3,
@@ -236,6 +238,17 @@
             this.tabPage1.Text = "Tab1";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
+            // setupToolStripButton
+            // 
+            this.setupToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.setupToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("setupToolStripButton.Image")));
+            this.setupToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.setupToolStripButton.Name = "setupToolStripButton";
+            this.setupToolStripButton.Size = new System.Drawing.Size(41, 22);
+            this.setupToolStripButton.Text = "Setup";
+            this.setupToolStripButton.ToolTipText = "Setup Selected Session";
+            this.setupToolStripButton.Click += new System.EventHandler(this.SetupToolStripButton_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -279,5 +292,6 @@
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel;
         private System.Windows.Forms.TabControl tabControl;
         private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.ToolStripButton setupToolStripButton;
     }
 }

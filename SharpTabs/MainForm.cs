@@ -148,6 +148,14 @@ namespace SharpTabs
             factory.Save(Dtos());
         }
 
+        private void SetupToolStripButton_Click(object sender, EventArgs e)
+        {
+            var selected = tabControl.SelectedTab;
+            if (selected == null) return;
+            var control = Control(selected);
+            factory.Setup(control);
+        }
+
         private void ShiftLeftToolStripButton_Click(object sender, EventArgs e)
         {
             var selected = tabControl.SelectedTab;
