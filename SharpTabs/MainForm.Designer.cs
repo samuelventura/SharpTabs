@@ -32,6 +32,7 @@
             this.toolStrip = new System.Windows.Forms.ToolStrip();
             this.newToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.cloneToolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.setupToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.renameToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.saveToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
@@ -43,11 +44,11 @@
             this.importToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.removeToolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.tryoutToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.tabControl = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.setupToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.toolStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
             this.tabControl.SuspendLayout();
@@ -69,7 +70,8 @@
             this.exportSelectedToolStripButton,
             this.importToolStripButton,
             this.toolStripSeparator2,
-            this.removeToolStripButton});
+            this.removeToolStripButton,
+            this.tryoutToolStripButton});
             this.toolStrip.Location = new System.Drawing.Point(0, 0);
             this.toolStrip.Name = "toolStrip";
             this.toolStrip.Size = new System.Drawing.Size(784, 25);
@@ -98,6 +100,17 @@
             this.cloneToolStripButton.ToolTipText = "Clone Selected Session";
             this.cloneToolStripButton.Click += new System.EventHandler(this.CloneToolStripButton_Click);
             // 
+            // setupToolStripButton
+            // 
+            this.setupToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.setupToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("setupToolStripButton.Image")));
+            this.setupToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.setupToolStripButton.Name = "setupToolStripButton";
+            this.setupToolStripButton.Size = new System.Drawing.Size(41, 22);
+            this.setupToolStripButton.Text = "Setup";
+            this.setupToolStripButton.ToolTipText = "Setup Selected Session";
+            this.setupToolStripButton.Click += new System.EventHandler(this.SetupToolStripButton_Click);
+            // 
             // renameToolStripButton
             // 
             this.renameToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
@@ -117,7 +130,7 @@
             this.saveToolStripButton.Name = "saveToolStripButton";
             this.saveToolStripButton.Size = new System.Drawing.Size(35, 22);
             this.saveToolStripButton.Text = "Save";
-            this.saveToolStripButton.ToolTipText = "Save Sessions";
+            this.saveToolStripButton.ToolTipText = "Save All Sessions";
             this.saveToolStripButton.Click += new System.EventHandler(this.SaveToolStripButton_Click);
             // 
             // toolStripSeparator3
@@ -201,6 +214,17 @@
             this.removeToolStripButton.ToolTipText = "Remove Selected Session";
             this.removeToolStripButton.Click += new System.EventHandler(this.RemoveToolStripButton_Click);
             // 
+            // tryoutToolStripButton
+            // 
+            this.tryoutToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.tryoutToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("tryoutToolStripButton.Image")));
+            this.tryoutToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tryoutToolStripButton.Name = "tryoutToolStripButton";
+            this.tryoutToolStripButton.Size = new System.Drawing.Size(44, 22);
+            this.tryoutToolStripButton.Text = "Tryout";
+            this.tryoutToolStripButton.ToolTipText = "Remove Selected Session";
+            this.tryoutToolStripButton.Click += new System.EventHandler(this.TryoutToolStripButton_Click);
+            // 
             // statusStrip
             // 
             this.statusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -237,17 +261,6 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Tab1";
             this.tabPage1.UseVisualStyleBackColor = true;
-            // 
-            // setupToolStripButton
-            // 
-            this.setupToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.setupToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("setupToolStripButton.Image")));
-            this.setupToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.setupToolStripButton.Name = "setupToolStripButton";
-            this.setupToolStripButton.Size = new System.Drawing.Size(41, 22);
-            this.setupToolStripButton.Text = "Setup";
-            this.setupToolStripButton.ToolTipText = "Setup Selected Session";
-            this.setupToolStripButton.Click += new System.EventHandler(this.SetupToolStripButton_Click);
             // 
             // MainForm
             // 
@@ -293,5 +306,6 @@
         private System.Windows.Forms.TabControl tabControl;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.ToolStripButton setupToolStripButton;
+        private System.Windows.Forms.ToolStripButton tryoutToolStripButton;
     }
 }

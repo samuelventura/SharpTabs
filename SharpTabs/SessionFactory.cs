@@ -6,6 +6,7 @@ namespace SharpTabs
 {
     public interface SessionFactory
     {
+        bool HasSetup { get; }
         Icon Icon { get; }
         string Name { get; }
         string Ext { get; }

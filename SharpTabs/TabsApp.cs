@@ -18,6 +18,7 @@ namespace SharpTabs
         public string Title => "SharpTabs App";
         public string Status => path;
         public Icon Icon => Resource.SampleIcon;
+        public bool HasSetup => true;
 
         public TabFactory(string path)
         {
@@ -31,22 +32,7 @@ namespace SharpTabs
 
         public SessionDto[] Load(string path)
         {
-            SessionDao.Exec(path, (db) => 
-            {
-                if (TabsTools.IsDebug())
-                {
-                    //force migration
-                    //db.Engine.UserVersion = 0;
-                }
-                //migration
-                if (db.Engine.UserVersion < 1)
-                {
-                    var assy = typeof(TabDto).Assembly.FullName;
-                    var type = typeof(TabDto).FullName;
-                    db.Engine.Run($"db.sessions.update _type='{type}, {assy}'"); 
-                    db.Engine.UserVersion = 1;
-                }
-            });
+            SessionDao.Retype(path, 1, typeof(TabDto));
             return SessionDao.Load<TabDto>(path);
         }
 

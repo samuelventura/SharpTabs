@@ -52,13 +52,10 @@ namespace SharpTabs
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            if (TabsTools.IsDebug() && TabsTools.IsControlDown())
-            {
-                throw new Exception("Exception to test dump DEBUG+CNTRL");
-            }
             Text = factory.Title;
             Icon = factory.Icon;
             toolStripStatusLabel.Text = factory.Status;
+            setupToolStripButton.Visible = factory.HasSetup;
             tabControl.TabPages.Clear();
             foreach (var dto in factory.Load())
             {
@@ -69,6 +66,7 @@ namespace SharpTabs
                 newToolStripButton.PerformClick();
             }
             tabControl.SelectedIndex = 0;
+            tryoutToolStripButton.Visible = TabsTools.IsDebug();
         }
 
         private void MainForm_FormClosed(object sender, FormClosedEventArgs e)
@@ -106,6 +104,14 @@ namespace SharpTabs
                         e.Cancel = true;
                         break;
                 }
+            }
+        }
+
+        private void TryoutToolStripButton_Click(object sender, EventArgs e)
+        {
+            if (TabsTools.IsControlDown())
+            {
+                throw new Exception("Exception to test dump DEBUG+CNTRL");
             }
         }
 

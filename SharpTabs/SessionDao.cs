@@ -60,5 +60,25 @@ namespace SharpTabs
                 db.RenameCollection("temp", "sessions");
             }
         }
+
+        public static void Retype(string path, ushort version, Type type)
+        {
+            Exec(path, (db) =>
+            {
+                if (TabsTools.IsDebug())
+                {
+                    //force migration
+                    //db.Engine.UserVersion = 0;
+                }
+                //migration
+                if (db.Engine.UserVersion < version)
+                {
+                    var typeName = type.FullName;
+                    var assyName = type.Assembly.FullName;
+                    db.Engine.Run($"db.sessions.update _type='{typeName}, {assyName}'");
+                    db.Engine.UserVersion = version;
+                }
+            });
+        }
     }
 }

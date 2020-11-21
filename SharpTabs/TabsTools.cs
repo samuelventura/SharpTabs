@@ -21,6 +21,7 @@ namespace SharpTabs
             SetDebug();
             return DEBUG;
         }
+
         public static bool IsControlDown()
         {
             return (Control.ModifierKeys & Keys.Control) == Keys.Control;
@@ -35,7 +36,8 @@ namespace SharpTabs
             }
             else 
             {
-                var root = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
+                var appdata = Environment.SpecialFolder.ApplicationData;
+                var root = Environment.GetFolderPath(appdata);
                 var folder = Path.Combine(root, name);
                 Directory.CreateDirectory(folder);
                 return folder;
