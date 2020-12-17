@@ -189,12 +189,16 @@ namespace SharpTabs
         private void ExportAllToolStripButton_Click(object sender, EventArgs e)
         {
             if (tabControl.TabPages.Count == 0) return;
+            var selected = tabControl.SelectedTab;
+            if (selected == null) return;
+            var dto = Dto(selected);
             var fd = new SaveFileDialog
             {
                 Title = $"Export to {factory.Name} File",
                 Filter = $"{factory.Name} Files (*.{factory.Ext})|*.{factory.Ext}",
                 OverwritePrompt = true,
-                RestoreDirectory = true
+                RestoreDirectory = true,
+                FileName = dto.Name,
             };
             if (fd.ShowDialog() == DialogResult.OK)
             {
@@ -206,16 +210,17 @@ namespace SharpTabs
         {
             var selected = tabControl.SelectedTab;
             if (selected == null) return;
+            var dto = Dto(selected);
             var fd = new SaveFileDialog
             {
                 Title = $"Export to {factory.Name} File",
                 Filter = $"{factory.Name} Files (*.{factory.Ext})|*.{factory.Ext}",
                 OverwritePrompt = true,
-                RestoreDirectory = true
+                RestoreDirectory = true,
+                FileName = dto.Name,
             };
             if (fd.ShowDialog() == DialogResult.OK)
             {
-                var dto = Dto(selected);
                 factory.Save(fd.FileName, new SessionDto[] {dto});
             }
         }
