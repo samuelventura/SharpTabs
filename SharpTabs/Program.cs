@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Windows.Forms;
 
 namespace SharpTabs
@@ -8,6 +8,8 @@ namespace SharpTabs
         [STAThread]
         static void Main(string[] args)
         {
+            //SetHighDpiMode introduced in net5-win
+            //Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             var path = args.Length > 0 ? args[0] : null;

@@ -85,8 +85,9 @@ namespace SharpTabs
             var original = JsonConvert.SerializeObject(factory.Load(), Formatting.Indented);
             if (TabsTools.IsDebug())
             {
-                File.WriteAllText("original.txt", original);
-                File.WriteAllText("current.txt", current);
+                var folder = TabsTools.DefaultFolder(factory.Name);
+                File.WriteAllText(Path.Combine(folder, "original.txt"), original);
+                File.WriteAllText(Path.Combine(folder, "current.txt"), current);
             }
             if (current != original)
             {
