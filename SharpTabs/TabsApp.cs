@@ -4,20 +4,20 @@ using System.Windows.Forms;
 
 namespace SharpTabs
 {
-    public class TabDto : SessionDto
+    public class TabDto : ISessionDto
     {
         public int Id { get; set; }
         public string Name { get; set; }
     }
 
-    public class TabFactory : SessionFactory
+    public class TabFactory : ISessionFactory
     {
         private readonly string path;
         public string Name => "SharpTabs";
         public string Ext => "SharpTabs";
         public string Title => "SharpTabs App";
         public string Status => path;
-        public Icon Icon => Resource.SampleIcon;
+        public Icon Icon => TabsTools.ExeIcon();
         public bool HasSetup => true;
 
         public TabFactory(string path)
@@ -25,12 +25,12 @@ namespace SharpTabs
             this.path = path ?? SessionDao.DefaultPath(Name);
         }
 
-        public SessionDto[] Load()
+        public ISessionDto[] Load()
         {
             return Load(path);
         }
 
-        public SessionDto[] Load(string path)
+        public ISessionDto[] Load(string path)
         {
             SessionDao.Retype(path, 1, typeof(TabDto));
             return SessionDao.Load<TabDto>(path);
@@ -42,12 +42,12 @@ namespace SharpTabs
             throw new Exception("Invalid control");
         }
 
-        public void Save(SessionDto[] dtos)
+        public void Save(ISessionDto[] dtos)
         {
             Save(path, dtos);
         }
 
-        public void Save(string path, SessionDto[] dtos)
+        public void Save(string path, ISessionDto[] dtos)
         {
             SessionDao.Save(path, dtos);
         }
@@ -65,7 +65,7 @@ namespace SharpTabs
             });
         }
 
-        public SessionDto Unwrap(Control obj)
+        public ISessionDto Unwrap(Control obj)
         {
             var control = obj as Panel;
             return new TabDto 
@@ -74,7 +74,7 @@ namespace SharpTabs
             };
         }
 
-        public Control Wrap(SessionDto obj)
+        public Control Wrap(ISessionDto obj)
         {
             var dto = obj as TabDto;
             return new Panel

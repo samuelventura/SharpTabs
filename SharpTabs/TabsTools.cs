@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Drawing;
 using System.Windows.Forms;
 using System.Reflection;
 using System.Diagnostics;
@@ -27,6 +28,12 @@ namespace SharpTabs
             return (Control.ModifierKeys & Keys.Control) == Keys.Control;
         }
 
+        public static Icon ExeIcon()
+        {
+            var entry = Assembly.GetEntryAssembly().Location;
+            return Icon.ExtractAssociatedIcon(entry);
+        }
+
         public static string DefaultFolder(string name)
         {
             if (IsDebug())
@@ -46,16 +53,9 @@ namespace SharpTabs
 
         public static void SetupCatcher(string name)
         {
-            Application.ThreadException += (s, t) =>
-            {
-                var ex = t.Exception;
-                var folder = DefaultFolder(name);
-                var path = Dump(folder, ex);
-                Process.Start(path);
-                var msg = string.Format("{0}\n{1} {2}", path, ex.GetType().FullName, ex.Message);
-                MessageBox.Show(msg, $"{name} Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                Environment.Exit(1); //Application.Exit calls MainForm.OnClose
-            };
+            Application.SetUnhandledExceptionMode(UnhandledExceptionMode.CatchException);
+            Application.ThreadException += (s, e) => { HandleException(name, e.Exception); };
+            AppDomain.CurrentDomain.UnhandledException += (s, e) => { HandleException(name, e.ExceptionObject as Exception); };
         }
 
         public static string Dump(string folder, Exception ex)
@@ -67,6 +67,15 @@ namespace SharpTabs
             var path = Path.Combine(exceptions, file);
             File.WriteAllText(path, ex.ToString());
             return path;
-        }
+        }        
+        
+        public static void HandleException(string name, Exception ex)
+        {
+            var folder = DefaultFolder(name);
+            var path = Dump(folder, ex);
+            Process.Start(path);
+            MessageBox.Show(ex.Message, "Unexpected Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            Environment.Exit(1); //Application.Exit calls MainForm.OnClose
+        }        
     }
 }

@@ -4,7 +4,7 @@ using System.Windows.Forms;
 
 namespace SharpTabs
 {
-    public interface SessionFactory
+    public interface ISessionFactory
     {
         bool HasSetup { get; }
         Icon Icon { get; }
@@ -13,13 +13,13 @@ namespace SharpTabs
         string Title { get; }
         string Status { get; }
         Control New();
-        SessionDto[] Load();
-        SessionDto[] Load(string path);
+        ISessionDto[] Load();
+        ISessionDto[] Load(string path);
         void Setup(Control control);
         void Unload(Control control);
-        void Save(SessionDto[] dtos);
-        void Save(string path, SessionDto[] dtos);
-        Control Wrap(SessionDto dto);
-        SessionDto Unwrap(Control control);
+        void Save(ISessionDto[] dtos);
+        void Save(string path, ISessionDto[] dtos);
+        Control Wrap(ISessionDto dto);
+        ISessionDto Unwrap(Control control);
     }
 }

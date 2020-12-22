@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.toolStrip = new System.Windows.Forms.ToolStrip();
             this.newToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.cloneToolStripButton = new System.Windows.Forms.ToolStripButton();
@@ -48,7 +47,6 @@
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.tabControl = new System.Windows.Forms.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
             this.toolStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
             this.tabControl.SuspendLayout();
@@ -81,8 +79,6 @@
             // newToolStripButton
             // 
             this.newToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.newToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("newToolStripButton.Image")));
-            this.newToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.newToolStripButton.Name = "newToolStripButton";
             this.newToolStripButton.Size = new System.Drawing.Size(35, 22);
             this.newToolStripButton.Text = "New";
@@ -92,8 +88,6 @@
             // cloneToolStripButton
             // 
             this.cloneToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.cloneToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("cloneToolStripButton.Image")));
-            this.cloneToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.cloneToolStripButton.Name = "cloneToolStripButton";
             this.cloneToolStripButton.Size = new System.Drawing.Size(42, 22);
             this.cloneToolStripButton.Text = "Clone";
@@ -103,8 +97,6 @@
             // setupToolStripButton
             // 
             this.setupToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.setupToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("setupToolStripButton.Image")));
-            this.setupToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.setupToolStripButton.Name = "setupToolStripButton";
             this.setupToolStripButton.Size = new System.Drawing.Size(41, 22);
             this.setupToolStripButton.Text = "Setup";
@@ -114,8 +106,6 @@
             // renameToolStripButton
             // 
             this.renameToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.renameToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("renameToolStripButton.Image")));
-            this.renameToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.renameToolStripButton.Name = "renameToolStripButton";
             this.renameToolStripButton.Size = new System.Drawing.Size(54, 22);
             this.renameToolStripButton.Text = "Rename";
@@ -125,8 +115,6 @@
             // saveToolStripButton
             // 
             this.saveToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.saveToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("saveToolStripButton.Image")));
-            this.saveToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.saveToolStripButton.Name = "saveToolStripButton";
             this.saveToolStripButton.Size = new System.Drawing.Size(35, 22);
             this.saveToolStripButton.Text = "Save";
@@ -141,8 +129,6 @@
             // shiftLeftToolStripButton
             // 
             this.shiftLeftToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.shiftLeftToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("shiftLeftToolStripButton.Image")));
-            this.shiftLeftToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.shiftLeftToolStripButton.Name = "shiftLeftToolStripButton";
             this.shiftLeftToolStripButton.Size = new System.Drawing.Size(42, 22);
             this.shiftLeftToolStripButton.Text = "< Left";
@@ -152,8 +138,6 @@
             // shiftRightToolStripButton
             // 
             this.shiftRightToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.shiftRightToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("shiftRightToolStripButton.Image")));
-            this.shiftRightToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.shiftRightToolStripButton.Name = "shiftRightToolStripButton";
             this.shiftRightToolStripButton.Size = new System.Drawing.Size(50, 22);
             this.shiftRightToolStripButton.Text = "Right >";
@@ -168,8 +152,6 @@
             // exportAllToolStripButton
             // 
             this.exportAllToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.exportAllToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("exportAllToolStripButton.Image")));
-            this.exportAllToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.exportAllToolStripButton.Name = "exportAllToolStripButton";
             this.exportAllToolStripButton.Size = new System.Drawing.Size(62, 22);
             this.exportAllToolStripButton.Text = "Export All";
@@ -179,8 +161,6 @@
             // exportSelectedToolStripButton
             // 
             this.exportSelectedToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.exportSelectedToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("exportSelectedToolStripButton.Image")));
-            this.exportSelectedToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.exportSelectedToolStripButton.Name = "exportSelectedToolStripButton";
             this.exportSelectedToolStripButton.Size = new System.Drawing.Size(92, 22);
             this.exportSelectedToolStripButton.Text = "Export Selected";
@@ -190,8 +170,6 @@
             // importToolStripButton
             // 
             this.importToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.importToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("importToolStripButton.Image")));
-            this.importToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.importToolStripButton.Name = "importToolStripButton";
             this.importToolStripButton.Size = new System.Drawing.Size(47, 22);
             this.importToolStripButton.Text = "Import";
@@ -206,8 +184,6 @@
             // removeToolStripButton
             // 
             this.removeToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.removeToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("removeToolStripButton.Image")));
-            this.removeToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.removeToolStripButton.Name = "removeToolStripButton";
             this.removeToolStripButton.Size = new System.Drawing.Size(54, 22);
             this.removeToolStripButton.Text = "Remove";
@@ -217,12 +193,10 @@
             // tryoutToolStripButton
             // 
             this.tryoutToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.tryoutToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("tryoutToolStripButton.Image")));
-            this.tryoutToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tryoutToolStripButton.Name = "tryoutToolStripButton";
             this.tryoutToolStripButton.Size = new System.Drawing.Size(44, 22);
             this.tryoutToolStripButton.Text = "Tryout";
-            this.tryoutToolStripButton.ToolTipText = "Remove Selected Session";
+            this.tryoutToolStripButton.ToolTipText = "Tryout Action";
             this.tryoutToolStripButton.Click += new System.EventHandler(this.TryoutToolStripButton_Click);
             // 
             // statusStrip
@@ -234,33 +208,24 @@
             this.statusStrip.Size = new System.Drawing.Size(784, 22);
             this.statusStrip.TabIndex = 5;
             this.statusStrip.Text = "statusTrip1";
+            this.statusStrip.ShowItemToolTips = true;
             // 
             // toolStripStatusLabel
             // 
             this.toolStripStatusLabel.Name = "toolStripStatusLabel";
             this.toolStripStatusLabel.Size = new System.Drawing.Size(39, 17);
             this.toolStripStatusLabel.Text = "Status";
+            this.toolStripStatusLabel.ToolTipText = "Click to copy path to clipboard";
             this.toolStripStatusLabel.Click += new System.EventHandler(this.ToolStripStatusLabel_Click);
             // 
             // tabControl
             // 
-            this.tabControl.Controls.Add(this.tabPage1);
             this.tabControl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl.Location = new System.Drawing.Point(0, 25);
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 0;
             this.tabControl.Size = new System.Drawing.Size(784, 514);
             this.tabControl.TabIndex = 6;
-            // 
-            // tabPage1
-            // 
-            this.tabPage1.Location = new System.Drawing.Point(4, 22);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(776, 488);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "Tab1";
-            this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // MainForm
             // 
@@ -304,7 +269,6 @@
         private System.Windows.Forms.StatusStrip statusStrip;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel;
         private System.Windows.Forms.TabControl tabControl;
-        private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.ToolStripButton setupToolStripButton;
         private System.Windows.Forms.ToolStripButton tryoutToolStripButton;
     }

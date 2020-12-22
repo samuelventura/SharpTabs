@@ -28,7 +28,7 @@ namespace SharpTabs
             }
         }
 
-        public static T[] Load<T>(string path) where T : SessionDto
+        public static T[] Load<T>(string path) where T : ISessionDto
         {
             using (var db = new LiteDatabase(path))
             {
@@ -42,7 +42,7 @@ namespace SharpTabs
             }
         }
 
-        public static void Save(string path, SessionDto[] dtos)
+        public static void Save(string path, ISessionDto[] dtos)
         {
             var index = 0;
             foreach (var dto in dtos)

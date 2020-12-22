@@ -2,7 +2,7 @@
 
 namespace SharpTabs
 {
-    public interface SessionDto
+    public interface ISessionDto
     {
         int Id { get; set; }
         string Name { get; set; }

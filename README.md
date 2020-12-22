@@ -1,2 +1,4 @@
 # SharpTabs
-Basic tabs based session manager
+
+Basic Tabbed MDI
+

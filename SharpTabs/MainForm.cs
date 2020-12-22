@@ -8,9 +8,9 @@ namespace SharpTabs
 {
     public partial class MainForm : Form
     {
-        private readonly SessionFactory factory;
+        private readonly ISessionFactory factory;
 
-        public MainForm(SessionFactory factory)
+        public MainForm(ISessionFactory factory)
         {
             this.factory = factory;
             InitializeComponent();
@@ -33,16 +33,16 @@ namespace SharpTabs
             return tabPage.Tag as Control;
         }
 
-        private SessionDto Dto(TabPage tabPage)
+        private ISessionDto Dto(TabPage tabPage)
         {
             var control = Control(tabPage);
             control.Text = tabPage.Text; //name holder
             return factory.Unwrap(control);
         }
 
-        private SessionDto[] Dtos()
+        private ISessionDto[] Dtos()
         {
-            var list = new List<SessionDto>();
+            var list = new List<ISessionDto>();
             foreach(var item in tabControl.TabPages)
             {
                 list.Add(Dto(item as TabPage));
@@ -222,7 +222,7 @@ namespace SharpTabs
             };
             if (fd.ShowDialog() == DialogResult.OK)
             {
-                factory.Save(fd.FileName, new SessionDto[] {dto});
+                factory.Save(fd.FileName, new ISessionDto[] {dto});
             }
         }
 
