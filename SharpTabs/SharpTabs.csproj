@@ -5,14 +5,13 @@
     <TargetFramework>net40</TargetFramework>
     <UseWindowsForms>true</UseWindowsForms>
     <ApplicationIcon>TabsIcon.ico</ApplicationIcon>    
-    <GenerateResourceUsePreserializedResources>true</GenerateResourceUsePreserializedResources>
+    <Version>1.0.1.0</Version>
+    <Authors>Samuel Ventura</Authors>
+    <Copyright>Copyright © Samuel Ventura 2020</Copyright>
+    <Description>Basic Tabbed MDI</Description>    
     <PackageId>SharpTabs</PackageId>
-    <PackageVersion>1.0.1.0</PackageVersion>
     <PackageProjectUrl>https://github.com/samuelventura/SharpTabs</PackageProjectUrl>  
     <PackageLicenseExpression>MIT</PackageLicenseExpression>  
-    <PackageTags>Tabbed MDI</PackageTags>    
-    <Description>Tabbed MDI</Description>    
-    <Authors>Samuel Ventura</Authors>
   </PropertyGroup>
 
   <ItemGroup>
