@@ -34,10 +34,10 @@ namespace SharpTabs
             return Icon.ExtractAssociatedIcon(entry);
         }
 
-        public static string ExeVersion()
+        public static string Version()
         {
-            var entry = Assembly.GetEntryAssembly().Location;
-            return FileVersionInfo.GetVersionInfo(entry).FileVersion;
+            var name = Assembly.GetEntryAssembly().GetName();
+            return name.Version.ToString();
         }
 
         public static string DefaultFolder(string name)

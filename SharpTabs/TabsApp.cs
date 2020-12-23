@@ -15,7 +15,7 @@ namespace SharpTabs
         private readonly string path;
         public string Name => "SharpTabs";
         public string Ext => "SharpTabs";
-        public string Title => $"SharpTabs App {TabsTools.ExeVersion()}";
+        public string Title => $"SharpTabs App {TabsTools.Version()}";
         public string Status => path;
         public Icon Icon => TabsTools.ExeIcon();
         public bool HasSetup => true;
