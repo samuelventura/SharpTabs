@@ -9,19 +9,15 @@ namespace SharpTabs
 {
     public partial class TabsTools
     {
-        private static bool DEBUG;
-
-        [Conditional("DEBUG")]
-        public static void SetDebug()
+        //replace with your own
+        public static Func<bool> IsDebug = () =>
         {
-            DEBUG = true;
-        }
-
-        public static bool IsDebug()
-        {
-            SetDebug();
-            return DEBUG;
-        }
+#if DEBUG
+            return true;
+#else
+            return false;
+#endif
+        };
 
         public static bool IsControlDown()
         {
@@ -47,7 +43,7 @@ namespace SharpTabs
                 var entry = Assembly.GetEntryAssembly().Location;
                 return Path.GetDirectoryName(entry);
             }
-            else 
+            else
             {
                 var appdata = Environment.SpecialFolder.ApplicationData;
                 var root = Environment.GetFolderPath(appdata);
@@ -73,8 +69,8 @@ namespace SharpTabs
             var path = Path.Combine(exceptions, file);
             File.WriteAllText(path, ex.ToString());
             return path;
-        }        
-        
+        }
+
         public static void HandleException(string name, Exception ex)
         {
             var folder = DefaultFolder(name);
@@ -82,6 +78,6 @@ namespace SharpTabs
             Process.Start(path);
             MessageBox.Show(ex.Message, "Unexpected Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             Environment.Exit(1); //Application.Exit calls MainForm.OnClose
-        }        
+        }
     }
 }

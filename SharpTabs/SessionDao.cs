@@ -34,7 +34,7 @@ namespace SharpTabs
             {
                 var table = db.GetCollection<T>("sessions");
                 var list = new List<T>(table.FindAll());
-                foreach(var dto in list)
+                foreach (var dto in list)
                 {
                     dto.Id = 0;
                 }

@@ -5,7 +5,7 @@
     <TargetFramework>net40</TargetFramework>
     <UseWindowsForms>true</UseWindowsForms>
     <ApplicationIcon>TabsIcon.ico</ApplicationIcon>    
-    <Version>1.0.1.0</Version>
+    <Version>1.0.2.0</Version>
     <Authors>Samuel Ventura</Authors>
     <Copyright>Copyright © Samuel Ventura 2020</Copyright>
     <Description>Basic Tabbed MDI</Description>    
